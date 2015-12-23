@@ -1,4 +1,3 @@
-# getting-and-cleaning-data-courseproject
 ## Course Project for Getting and Cleaning Data
 
 ### Objective:
@@ -13,7 +12,7 @@ One of the most exciting areas in all of data science right now is wearable comp
 Here are the [data](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip ) for the project.
 
 
- ### Contained Files:
+### Contained Files:
 
 This repository contains the following files: 
 
