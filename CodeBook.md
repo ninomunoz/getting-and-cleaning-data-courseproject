@@ -44,18 +44,16 @@ The body linear acceleration and angular velocity were derived in time to obtain
 A Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. *(Note the ‘f’ to indicate frequency domain signals)*.
 
 **Key:**
-1. leading *t* or *f*: time or frequency measurement
-2. SD: standard deviation
-3. Acc: accelerometer measurement
-4. Gyro: gyroscopic measurement
-5. Mag: magnitude of movement
+- leading *t* or *f*: time or frequency measurement
+- SD: standard deviation
+- Acc: accelerometer measurement
+- Gyro: gyroscopic measurement
+- Mag: magnitude of movement
 
 Using the above key with the raw data, a tidy data set with more descriptive variable names was generated.
 
 **Variables:**
-
 [1] "Subject"
-
 [2] "Activity"                                         
 [3] "TimeBodyAccelerometerMean()-X"                    
 [4] "TimeBodyAccelerometerMean()-Y"                    
