@@ -1,6 +1,4 @@
-* Describes the variables, the data, and any transformations or work that you performed to clean up the data	
-
-## Code Book
+	## Code Book
 
 ### Data Summary:
 
@@ -29,7 +27,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 - *test/X_test.txt*: Test set.
 - *test/y_test.txt*: Test labels.
 
-The following files are available for the train and test data. Their descriptions are equivalent. 
+**The following files are available for the train and test data. Their descriptions are equivalent.** 
 
 - *train/subject_train.txt*: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 - *train/Inertial Signals/total_acc_x_train.txt*: The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
@@ -47,25 +45,23 @@ A Fast Fourier Transform (FFT) was applied to some of these signals producing fB
 
 **Key:**
 1. leading *t* or *f*: time or frequency measurement
-2. Body: related to body movement
-3. Gravity: acceleration of gravity
-4. Acc: accelerometer measurement
-5. Gyro: gyroscopic measurement
-6. Jerk: sudden movement acceleration
-7. Mag: magnitude of movement
+2. SD: standard deviation
+3. Acc: accelerometer measurement
+4. Gyro: gyroscopic measurement
+5. Mag: magnitude of movement
 
 Using the above key with the raw data, a tidy data set with more descriptive variable names was generated.
 
 ** Variables:**
- [1] "Subject"                                          
- [2] "Activity"                                         
- [3] "TimeBodyAccelerometerMean()-X"                    
- [4] "TimeBodyAccelerometerMean()-Y"                    
- [5] "TimeBodyAccelerometerMean()-Z"                    
- [6] "TimeBodyAccelerometerSTD()-X"                     
- [7] "TimeBodyAccelerometerSTD()-Y"                     
- [8] "TimeBodyAccelerometerSTD()-Z"                     
- [9] "TimeGravityAccelerometerMean()-X"                 
+[1] "Subject"                                          
+[2] "Activity"                                         
+[3] "TimeBodyAccelerometerMean()-X"                    
+[4] "TimeBodyAccelerometerMean()-Y"                    
+[5] "TimeBodyAccelerometerMean()-Z"                    
+[6] "TimeBodyAccelerometerSTD()-X"                     
+[7] "TimeBodyAccelerometerSTD()-Y"                     
+[8] "TimeBodyAccelerometerSTD()-Z"                     
+[9] "TimeGravityAccelerometerMean()-X"                 
 [10] "TimeGravityAccelerometerMean()-Y"                 
 [11] "TimeGravityAccelerometerMean()-Z"                 
 [12] "TimeGravityAccelerometerSTD()-X"                  
@@ -149,7 +145,7 @@ Using the above key with the raw data, a tidy data set with more descriptive var
 
 ### Data Transformation:
 
-Download the data.
+**Download the data.**
 
 ```
 filesPath <- ".../Documents/Data Science/GettingAndCleaningData/Couse Project/getting-and-cleaning-data-courseproject/UCI HAR Dataset"
@@ -159,7 +155,7 @@ download.file(fileURL, destfile = "./data/Dataset.zip", method = "curl")
 unzip(zipfile = "./data/Dataset.zip", exdir = "./data")
 ```
 
-Load library packages.
+**Load library packages.**
 
 ```
 library(dplyr)
@@ -167,14 +163,14 @@ library(data.table)
 library(tidyr)
 ```
 
-Read in metadata.
+**Read in metadata.**
 
 ```
 feature.labels <- read.table("features.txt")
 activity.labels <- read.table("activity_labels.txt")
 ```
 
-Read in data.
+**Read in data.**
 
 ```
 test.subjects <- read.table("test/subject_test.txt", col.names="subject")
@@ -185,7 +181,7 @@ test.features <- read.table("test/X_test.txt")
 train.features <- read.table("train/X_train.txt")
 ```
 
-Filter features with mean/std and merge relevant data into single data frame.
+**Filter features with mean/std and merge relevant data into single data frame.**
 
 ```
 ## Generate subject, activity and feature rows
@@ -206,7 +202,7 @@ data <- cbind(subjects, activities, features.mean.std)
 ```
 
 
-Replace numeric activities in the data set with activity labels.
+**Replace numeric activities in the data set with activity labels.**
 
 ```
 data$Activity <- as.character(data$Activity)
@@ -215,7 +211,7 @@ for (i in 1:6) {
 }
 ```
 
-Give each of the columns more descriptive variable names (i.e., replacing abbrevations).
+**Give each of the columns more descriptive variable names (i.e., replacing abbrevations).**
 
 ```
 names(data) <- gsub("Acc", "Accelerometer", names(data))
@@ -232,7 +228,7 @@ names(data) <- gsub("angle", "Angle", names(data))
 names(data) <- gsub("gravity", "Gravity", names(data))
 ```
 
-Create a second, independent tidy data set with the average of each variable for each activity and each subject.
+**Create a second, independent tidy data set with the average of each variable for each activity and each subject.**
 
 ```
 ## Convert Subject and Activity to factors
