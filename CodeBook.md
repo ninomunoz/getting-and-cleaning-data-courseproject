@@ -53,7 +53,9 @@ A Fast Fourier Transform (FFT) was applied to some of these signals producing fB
 Using the above key with the raw data, a tidy data set with more descriptive variable names was generated.
 
 **Variables:**
+
 [1] "Subject"
+
 [2] "Activity"                                         
 [3] "TimeBodyAccelerometerMean()-X"                    
 [4] "TimeBodyAccelerometerMean()-Y"                    
